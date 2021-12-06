@@ -4,6 +4,8 @@ import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import NavBar from './NavBar/Navbar';
 import RegisterForm from './Register/RegisterForm';
+import Login from './components/Login';
+import Logout from './components/Logout';
 
 class App extends Component {
   constructor(props) {
