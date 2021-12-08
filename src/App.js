@@ -2,10 +2,11 @@ import react, { Component } from 'react';
 import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import NavBar from './NavBar/Navbar';
-import RegisterForm from './Register/RegisterForm';
+import NavBar from './components/Navbar';
+import RegisterForm from './components/RegisterForm';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import React, {useState, useEffect} from 'react';
 
 class App extends Component {
   constructor(props) {
