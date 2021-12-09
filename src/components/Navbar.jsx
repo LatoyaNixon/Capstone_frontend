@@ -26,6 +26,9 @@ function NavBar() {
                 <RouterLink to="tutorials">
                     <li>Tutorials</li>
                 </RouterLink>
+                <RouterLink to="Gyms">
+                    <li>Gyms</li>
+                </RouterLink>
             </ul>
         </na>
     )

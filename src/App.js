@@ -6,6 +6,10 @@ import NavBar from './components/Navbar';
 import RegisterForm from './components/RegisterForm';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import Buddy from './components/Buddy';
+import Tutorials from './components/Tutorials';
+import Gyms from './components/Gyms';
+import DisplayVideo from './components/DisplayVideo';
 import React, {useState, useEffect} from 'react';
 
 class App extends Component {
@@ -13,6 +17,8 @@ class App extends Component {
       super(props);
       this.state = { 
           loggedInUser: null,
+          videoId: '',
+          videos: [],
          
       };
   }
@@ -31,16 +37,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-      const jwt = localStorage.getItem('token');
-      try{
-          const user = jwt_decode(jwt);
-          this.setState({
-              user
-          });
-      } catch (err) {
-         console.log(err) 
-      }
-      this.getProduct()
+     this.getVideos('exercise tutorial');
+  }
+  getVideos = async (searchTerm) => {
+      let response = await axios.get()
+      console.log('videos', response.data.items)
+      this.setState({
+          videoId: response.data.items[0].id.videoId,
+          videos: response.data.items
+      });
   }
   
   async makeLoginRequest(logInfo){
@@ -62,13 +67,15 @@ class App extends Component {
     return(
         <div>
            <div>
+               <DisplayVideo videoId={this.state.videoId}/>
                 <NavBar user={user} />
                 <Routes>
                     <Route path='/register' element={<RegisterForm />} /> 
                     <Route path='/login' element={<Login />} />
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/buddy' element={<Buddy/>} />
-                    <Route path='/tutorials' element={<Tutorials/>} /> 
+                    <Route path='/tutorials' element={<Tutorials/>} />
+                    <Route path='/gyms' element={<Gyms/>} /> 
                 </Routes>
                     
                   

@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 
-import React from "react";
+
 
 const USERS = [
     { id: 1, name: 'Andy', age: 32, gender: 'male', fitness_level: 'beginner' },
@@ -38,7 +38,7 @@ function Buddy () {
                   <span className="user-name">{user.name}</span>
                   <span className="user-age">{user.age} year old</span>
                   <span className="user-gender">{user.gender}</span>
-                  <span className="user-fitness-level">{user.fitness-level}</span>
+                  <span className="user-fitness_level">{user.fitness_level}</span>
                 </li>
               ))
             ) : (
