@@ -1,6 +1,6 @@
-import react, { Component } from 'react';
-import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
+//import react, { Component } from 'react';
+//import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
+//import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import NavBar from './components/Navbar';
 import RegisterForm from './components/RegisterForm';
@@ -10,7 +10,8 @@ import Buddy from './components/Buddy';
 import Tutorials from './components/Tutorials';
 import Gyms from './components/Gyms';
 import DisplayVideo from './components/DisplayVideo';
-import React, {useState, useEffect} from 'react';
+//import React, {useState, useEffect} from 'react';
+import MapContainer from './components/MapContainer';
 
 class App extends Component {
   constructor(props) {
