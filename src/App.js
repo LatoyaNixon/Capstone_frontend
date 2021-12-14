@@ -1,5 +1,5 @@
-//import react, { Component } from 'react';
-//import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
+import react, { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
 //import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import NavBar from './components/Navbar';
@@ -12,6 +12,7 @@ import Gyms from './components/Gyms';
 import DisplayVideo from './components/DisplayVideo';
 //import React, {useState, useEffect} from 'react';
 import MapContainer from './components/MapContainer';
+import Filter from './components/Filter';
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends Component {
           loggedInUser: null,
           videoId: '',
           videos: [],
+          search: [],
          
       };
   }
@@ -38,10 +40,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-     this.getVideos('exercise tutorial');
+    // this.getVideos('exercise tutorial');
   }
   getVideos = async (searchTerm) => {
-      let response = await axios.get()
+      let response = await axios.get`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&type=video&key=AIzaSyC_0I7RZto-QzJCISRnYOJOM938SvMPmnU&part=snippet`()
       console.log('videos', response.data.items)
       this.setState({
           videoId: response.data.items[0].id.videoId,
@@ -63,11 +65,19 @@ class App extends Component {
           console.log("bad call")
       }
   } 
+  filterUser = (newUser) => {
+    console.log(newUser)
+    this.setState({
+        
+    })
+  }
+  
   render(){
     const user = this.state.user;
     return(
         <div>
            <div>
+               <Filter user={user}/>
                <DisplayVideo videoId={this.state.videoId}/>
                 <NavBar user={user} />
                 <Routes>
@@ -75,7 +85,7 @@ class App extends Component {
                     <Route path='/login' element={<Login />} />
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/buddy' element={<Buddy/>} />
-                    <Route path='/tutorials' element={<Tutorials/>} />
+                    <Route path='/tutorials' element={<Tutorials />} />
                     <Route path='/gyms' element={<Gyms/>} /> 
                 </Routes>
                     
@@ -87,11 +97,11 @@ class App extends Component {
 }
 }
                     
-                    
-                    
-
-
-
-
-
 export default App;
+                    
+                    
+
+
+
+
+
