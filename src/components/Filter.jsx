@@ -6,8 +6,7 @@ class Filter extends Component{
     constructor(props){
         super(props);
         this.state = {
-            firstName: '',
-            lastName: '',
+            
             age: '',
             gender: '',
             fitness_level: '',
@@ -23,16 +22,13 @@ class Filter extends Component{
     }
     handleSubmit = (event) => {
         event.preventDefault()
-            this.props.filterUsers(this.state)
+            this.props.filter(this.state)
         
     }
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>First Name:</label>
-                <input name="first name" onChange={this.handleChange} value={this.state.firstName} />
-                <label>Last Name:</label>
-                <input name="last name" onChange={this.handleChange} value={this.state.lastName} />
+                
                 <label>Age:</label>
                 <input name="age" onChange={this.handleChanage} value={this.state.age} />
                 <label>Gender:</label>

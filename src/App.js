@@ -11,8 +11,9 @@ import Tutorials from './components/Tutorials';
 import Gyms from './components/Gyms';
 import DisplayVideo from './components/DisplayVideo';
 //import React, {useState, useEffect} from 'react';
-import MapContainer from './components/MapContainer';
 import Filter from './components/Filter';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class App extends Component {
     return(
         <div>
            <div>
+               
                <Filter user={user}/>
                <DisplayVideo videoId={this.state.videoId}/>
                 <NavBar user={user} />
@@ -84,8 +86,8 @@ class App extends Component {
                     <Route path='/register' element={<RegisterForm />} /> 
                     <Route path='/login' element={<Login />} />
                     <Route path='/logout' element={<Logout />} />
-                    <Route path='/buddy' element={<Buddy/>} />
-                    <Route path='/tutorials' element={<Tutorials />} />
+                    <Route path='/buddy' element={<Buddy Filter/>} />
+                    <Route path='/tutorials' element={<Tutorials.Display videoId/>}  />
                     <Route path='/gyms' element={<Gyms/>} /> 
                 </Routes>
                     
